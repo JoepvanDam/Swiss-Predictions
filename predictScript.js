@@ -350,7 +350,7 @@ function calculate() {
                 quarterFinalWin.splice(2, 1, round3win[1]);
                 document.getElementById("prizesTeam7").innerHTML = round5win[1].htmlInfo[3];
             }
-            else if (playoffScores[7] > playoffScores[0]) {
+            else if (playoffScores[6] > playoffScores[1]) {
                 document.getElementById("semiTeam3").innerHTML = round5win[1].htmlInfo[2];
                 quarterFinalWin.splice(2, 1, round5win[1]);
                 document.getElementById("prizesTeam7").innerHTML = round3win[1].htmlInfo[3];
@@ -363,7 +363,7 @@ function calculate() {
                 quarterFinalWin.splice(3, 1, round4win[0]);
                 document.getElementById("prizesTeam8").innerHTML = round5win[0].htmlInfo[3];
             }
-            else if (playoffScores[7] > playoffScores[0]) {
+            else if (playoffScores[5] > playoffScores[2]) {
                 document.getElementById("semiTeam4").innerHTML = round5win[0].htmlInfo[2];
                 quarterFinalWin.splice(3, 1, round5win[0]);
                 document.getElementById("prizesTeam8").innerHTML = round4win[0].htmlInfo[3];
@@ -376,7 +376,7 @@ function calculate() {
                 quarterFinalWin.splice(1, 1, round4win[1]);
                 document.getElementById("prizesTeam6").innerHTML = round4win[2].htmlInfo[3];
             }
-            else if (playoffScores[7] > playoffScores[0]) {
+            else if (playoffScores[4] > playoffScores[3]) {
                 document.getElementById("semiTeam2").innerHTML = round4win[2].htmlInfo[2];
                 quarterFinalWin.splice(1, 1, round4win[2]);
                 document.getElementById("prizesTeam6").innerHTML = round4win[1].htmlInfo[3];
