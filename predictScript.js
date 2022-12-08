@@ -518,73 +518,29 @@ function randomize() {
 
 // Changing the page. Num 1 is Swiss Stage, 2 is Swiss Results, 3 is Playoffs, and 4 is Prizes.
 function changePage(num) {
-    if (num == 1) {
-        document.getElementById("link1").classList.add('underline');
-        document.getElementById("link1").classList.remove('text-gray-500');
-        document.getElementById("link2").classList.remove('underline');
-        document.getElementById("link2").classList.add('text-gray-500');
-        document.getElementById("link3").classList.remove('underline');
-        document.getElementById("link3").classList.add('text-gray-500');
-        document.getElementById("link4").classList.remove('underline');
-        document.getElementById("link4").classList.add('text-gray-500');
-        document.getElementById("swissStage").classList.add('flex');
-        document.getElementById("swissStage").classList.remove('hidden');
-        document.getElementById("swissResults").classList.remove('flex');
-        document.getElementById("swissResults").classList.add('hidden');
-        document.getElementById("playoffs").classList.remove('flex');
-        document.getElementById("playoffs").classList.add('hidden');
-        document.getElementById("prizes").classList.remove('flex');
-        document.getElementById("prizes").classList.add('hidden');
-    } else if (num == 2) {
-        document.getElementById("link1").classList.remove('underline');
-        document.getElementById("link1").classList.add('text-gray-500');
-        document.getElementById("link2").classList.add('underline');
-        document.getElementById("link2").classList.remove('text-gray-500');
-        document.getElementById("link3").classList.remove('underline');
-        document.getElementById("link3").classList.add('text-gray-500');
-        document.getElementById("link4").classList.remove('underline');
-        document.getElementById("link4").classList.add('text-gray-500');
-        document.getElementById("swissStage").classList.remove('flex');
-        document.getElementById("swissStage").classList.add('hidden');
-        document.getElementById("swissResults").classList.add('flex');
-        document.getElementById("swissResults").classList.remove('hidden');
-        document.getElementById("playoffs").classList.remove('flex');
-        document.getElementById("playoffs").classList.add('hidden');
-        document.getElementById("prizes").classList.remove('flex');
-        document.getElementById("prizes").classList.add('hidden');
-    } else if (num == 3) {
-        document.getElementById("link1").classList.remove('underline');
-        document.getElementById("link1").classList.add('text-gray-500');
-        document.getElementById("link2").classList.remove('underline');
-        document.getElementById("link2").classList.add('text-gray-500');
-        document.getElementById("link3").classList.add('underline');
-        document.getElementById("link3").classList.remove('text-gray-500');
-        document.getElementById("link4").classList.remove('underline');
-        document.getElementById("link4").classList.add('text-gray-500');
-        document.getElementById("swissStage").classList.remove('flex');
-        document.getElementById("swissStage").classList.add('hidden');
-        document.getElementById("swissResults").classList.remove('flex');
-        document.getElementById("swissResults").classList.add('hidden');
-        document.getElementById("playoffs").classList.add('flex');
-        document.getElementById("playoffs").classList.remove('hidden');
-        document.getElementById("prizes").classList.remove('flex');
-        document.getElementById("prizes").classList.add('hidden');
-    } else if (num == 4) {
-        document.getElementById("link1").classList.remove('underline');
-        document.getElementById("link1").classList.add('text-gray-500');
-        document.getElementById("link2").classList.remove('underline');
-        document.getElementById("link2").classList.add('text-gray-500');
-        document.getElementById("link3").classList.remove('underline');
-        document.getElementById("link3").classList.add('text-gray-500');
-        document.getElementById("link4").classList.add('underline');
-        document.getElementById("link4").classList.remove('text-gray-500');
-        document.getElementById("swissStage").classList.remove('flex');
-        document.getElementById("swissStage").classList.add('hidden');
-        document.getElementById("swissResults").classList.remove('flex');
-        document.getElementById("swissResults").classList.add('hidden');
-        document.getElementById("playoffs").classList.remove('flex');
-        document.getElementById("playoffs").classList.add('hidden');
-        document.getElementById("prizes").classList.add('flex');
-        document.getElementById("prizes").classList.remove('hidden');
-    }
+    // Get all page links
+    const links = document.querySelectorAll("[id^='link']");
+    
+    // Loop through each link and remove the 'underline' and 'text-gray-500' classes
+    for (const link of links) { link.classList.remove('underline'); link.classList.add('text-gray-500'); }
+    
+    // Get the selected page link
+    const selectedLink = document.getElementById(`link${num}`);
+    
+    // Add the 'underline' class to the selected link
+    selectedLink.classList.add('underline');
+    selectedLink.classList.remove('text-gray-500');
+    
+    // Get all page elements
+    const pages = document.querySelectorAll("[id^='swiss'], #playoffs, #prizes");
+    
+    // Loop through each page and remove the 'flex' and 'hidden' classes
+    for (const page of pages) { page.classList.remove('flex'); page.classList.add('hidden'); }
+    
+    // Get the selected page element
+    const selectedPage = document.getElementById(`${num === 1 ? 'swissStage' : num === 2 ? 'swissResults' : num === 3 ? 'playoffs' : 'prizes'}`);
+    
+    // Add the 'flex' class to the selected page
+    selectedPage.classList.add('flex');
+    selectedPage.classList.remove('hidden');
 }
