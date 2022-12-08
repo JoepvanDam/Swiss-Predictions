@@ -35,8 +35,8 @@ function calculate() {
         initSeeds.sort((a, b) => a.num - b.num);
         for (let num1 = 0, num2 = 16; num1 < 16; num1++, num2--) { initSeeds[num1].gd = 0; initSeeds[num1].results = [0, 0, 0, 0, 0]; initSeeds[num1].seeding = [(num1 + 1), 0, 0, 0, 0]; initSeeds[num1].matchups = [num2, 0, 0, 0, 0]; }
         
-        // Setting results[0] and game difference (gd).
-        for (let num1 = 0, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(0, 1, scoresRound1[num1]); initSeeds[num1].gd += (scoresRound1[num1] - scoresRound1[num2]); }
+        // Setting results[0], resultsAgainst[0], and game difference (gd).
+        for (let num1 = 0, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(0, 1, scoresRound1[num1]); initSeeds[num1].resultsAgainst.splice(0, 1, scoresRound1[num2]); initSeeds[num1].gd += (scoresRound1[num1] - scoresRound1[num2]); }
 
         // Setting round 2 seeding[1]. Seeding 1 -> 8 is round 2 high, 9 -> 16 is round 2 low.
         initSeeds.sort((a, b) => b.gd - a.gd); for (let num1 = 0; num1 < 16; num1++) { initSeeds[num1].seeding[1] = (num1 + 1); }
@@ -53,9 +53,9 @@ function calculate() {
     // Swiss round 2 -> 3
     if (scoresRound2.some((value) => isNaN(value))) { return }
     else {
-        // Setting results[1] and game difference (gd).
-        for (let num1 = 0, num2 = 7; num1 < 8; num1++, num2--) { initSeeds[num1].results.splice(1, 1, scoresRound2[num1]); initSeeds[num1].gd += (scoresRound2[num1] - scoresRound2[num2]); }
-        for (let num1 = 8, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(1, 1, scoresRound2[num1]); initSeeds[num1].gd += (scoresRound2[num1] - scoresRound2[num2]); }
+        // Setting results[1], resultsAgainst[1], and game difference (gd).
+        for (let num1 = 0, num2 = 7; num1 < 8; num1++, num2--) { initSeeds[num1].results.splice(1, 1, scoresRound2[num1]); initSeeds[num1].resultsAgainst.splice(1, 1, scoresRound2[num2]); initSeeds[num1].gd += (scoresRound2[num1] - scoresRound2[num2]); }
+        for (let num1 = 8, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(1, 1, scoresRound2[num1]); initSeeds[num1].resultsAgainst.splice(1, 1, scoresRound2[num2]); initSeeds[num1].gd += (scoresRound2[num1] - scoresRound2[num2]); }
 
         // Setting round 3 seeding[2] using temporary variables. Seeding 1 -> 4 is round 3 high, 5 -> 12 is round 3 mid, 13 -> 16 is round 3 low.
         let tempSeedsHigh = [], tempSeedsLow = [];
@@ -129,10 +129,10 @@ function calculate() {
     // Swiss round 3 -> 4
     if (scoresRound3.some((value) => isNaN(value))) { return }
     else {
-        // Setting results[2] and game difference (gd).
-        for (let num1 = 0, num2 = 3; num1 < 4; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
-        for (let num1 = 4, num2 = 11; num1 < 12; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
-        for (let num1 = 12, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
+        // Setting results[2], resultsAgainst[2], and game difference (gd).
+        for (let num1 = 0, num2 = 3; num1 < 4; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].resultsAgainst.splice(2, 1, scoresRound3[num2]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
+        for (let num1 = 4, num2 = 11; num1 < 12; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].resultsAgainst.splice(2, 1, scoresRound3[num2]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
+        for (let num1 = 12, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(2, 1, scoresRound3[num1]); initSeeds[num1].resultsAgainst.splice(2, 1, scoresRound3[num2]); initSeeds[num1].gd += (scoresRound3[num1] - scoresRound3[num2]); }
 
         // Setting round 4 seeding[3]. Seeding 1 -> 6 is round 4 high, 7 -> 12 is round 4 low.
         let tempSeedsHigh = [], tempSeedsMid = [], tempSeedsLow = [];
@@ -221,9 +221,9 @@ function calculate() {
     // Swiss round 4 -> 5
     if (scoresRound4.some((value) => isNaN(value))) { return }
     else {
-        // Setting results[3] and game difference (gd).
-        for (let num1 = 4, num2 = 9; num1 < 10; num1++, num2--) { initSeeds[num1].results.splice(3, 1, scoresRound4[(num1 - 4)]); initSeeds[num1].gd += (scoresRound4[(num1 - 4)] - scoresRound4[(num2 - 4)]); }
-        for (let num1 = 10, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(3, 1, scoresRound4[(num1 - 4)]); initSeeds[num1].gd += (scoresRound4[(num1 - 4)] - scoresRound4[(num2 - 4)]); }
+        // Setting results[3], resultsAgainst[3] and game difference (gd).
+        for (let num1 = 4, num2 = 9; num1 < 10; num1++, num2--) { initSeeds[num1].results.splice(3, 1, scoresRound4[(num1 - 4)]); initSeeds[num1].resultsAgainst.splice(3, 1, scoresRound4[(num2 - 4)]); initSeeds[num1].gd += (scoresRound4[(num1 - 4)] - scoresRound4[(num2 - 4)]); }
+        for (let num1 = 10, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(3, 1, scoresRound4[(num1 - 4)]); initSeeds[num1].resultsAgainst.splice(3, 1, scoresRound4[(num2 - 4)]); initSeeds[num1].gd += (scoresRound4[(num1 - 4)] - scoresRound4[(num2 - 4)]); }
 
         // Setting round 5 seeding[4] using temporary variables. Seeding will be 1 -> 6 for round 5.
         let tempSeedsHigh = [], tempSeedsLow = [];
@@ -288,9 +288,9 @@ function calculate() {
     // Swiss round 5 -> swiss results & prizes & playoffs
     if (scoresRound5.some((value) => isNaN(value))) { return }
     else {
-        // Setting results[4] and game difference (gd).
-        for (let num1 = 10, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(4, 1, scoresRound5[(num1 - 10)]); initSeeds[num1].gd += (scoresRound5[(num1 - 10)] - scoresRound5[(num2 - 10)]); }
-
+        // Setting results[4], resultsAgainst[4], and game difference (gd).
+        for (let num1 = 10, num2 = 15; num1 < 16; num1++, num2--) { initSeeds[num1].results.splice(4, 1, scoresRound5[(num1 - 10)]); initSeeds[num1].resultsAgainst.splice(4, 1, scoresRound5[(num2 - 10)]); initSeeds[num1].gd += (scoresRound5[(num1 - 10)] - scoresRound5[(num2 - 10)]); }
+        
         // Filling in swiss results using temporary variables.
         initSeeds.sort((a, b) => a.seeding[4] - b.seeding[4] || a.seeding[3] - b.seeding[3]);
         let round3teams = [], round4teams = [], round5teams = [];
