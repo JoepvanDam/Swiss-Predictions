@@ -304,32 +304,44 @@ function calculate() {
         // Setting results teams, game difference
         for (let num1 = 0; num1 < 16; num1++) {
             if (num1 < 2) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round3win[num1].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3win[num1].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round3win[num1].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round3win[num1].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round3win[num1].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3win[num1].gd;
                 if (round3win[num1].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round3win[num1].gd; } else { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3win[num1].gd; }
             }
 
             else if (num1 < 5) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round4win[(num1 - 2)].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4win[(num1 - 2)].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round4win[(num1 - 2)].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round4win[(num1 - 2)].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round4win[(num1 - 2)].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4win[(num1 - 2)].gd;
                 if (round4win[(num1-2)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round4win[(num1-2)].gd; } else { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4win[(num1-2)].gd; }
             }
 
             else if (num1 < 8) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round5win[(num1 - 5)].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5win[(num1 - 5)].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round5win[(num1 - 5)].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round5win[(num1-5)].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round5win[(num1-5)].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5win[(num1 - 5)].gd;
                 if (round5win[(num1-5)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round5win[(num1-5)].gd;} else {document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5win[(num1-5)].gd; }
             }
 
             else if (num1 < 11) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round5loss[(num1 - 8)].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5loss[(num1 - 8)].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round5loss[(num1 - 8)].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round5loss[(num1 - 8)].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round5loss[(num1 - 8)].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5loss[(num1 - 8)].gd;
                 if (round5loss[(num1-8)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round5loss[(num1-8)].gd;} else {document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round5loss[(num1-8)].gd; }
             }
 
             else if (num1 < 14) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round4loss[(num1 - 11)].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4loss[(num1 - 11)].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round4loss[(num1 - 11)].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round4loss[(num1-11)].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round4loss[(num1-11)].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4loss[(num1 - 11)].gd;
                 if (round4loss[(num1-11)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round4loss[(num1-11)].gd;} else {document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round4loss[(num1-11)].gd; }
             }
 
             else if (num1 < 16) {
-                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round3loss[(num1 - 14)].htmlInfo[1]; document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3loss[(num1 - 14)].gd;
+                document.getElementById("resultsTeam"+(num1+1)).innerHTML = round3loss[(num1 - 14)].htmlInfo[1];
+                document.getElementById("resultsTeam"+(num1+1)+"games").innerHTML = (round3loss[(num1 - 14)].results.reduce((a, b) => {return a + b;}, 0)) + " - " + (round3loss[(num1 - 14)].resultsAgainst.reduce((a, b) => {return a + b;}, 0));
+                document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3loss[(num1 - 14)].gd;
                 if (round3loss[(num1-14)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round3loss[(num1-14)].gd;} else {document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3loss[(num1-14)].gd; }
             }
         }
