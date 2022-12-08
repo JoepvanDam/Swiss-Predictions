@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fall Major Predictions</title>
+    <link rel="stylesheet" href="output.css">
+    <script defer src="predictScript.js"></script>
+</head>
+
+<body class="bg-slate-900 h-screen w-screen overflow-x-hidden text-gray-100 font-mono">
+    <div class="fixed top-0 left-0 ml-2 flex flex-col">
+        <a id="link1" class="py-4 text-4xl select-none hover:cursor-pointer hover:text-5xl underline" onclick="changePage(1)">Swiss Stage</a>
+        <a id="link2" class="py-4 text-4xl select-none hover:cursor-pointer hover:text-5xl text-gray-500" onclick="changePage(2)">Swiss Results</a>
+        <a id="link3" class="py-4 text-4xl select-none hover:cursor-pointer hover:text-5xl text-gray-500" onclick="changePage(3)">Playoffs</a>
+        <a id="link4" class="py-4 text-4xl select-none hover:cursor-pointer hover:text-5xl text-gray-500" onclick="changePage(4)">Prizes</a>
+    </div>
+
+    <div class="fixed top-0 right-0 mr-4 flex flex-col text-right">
+        <a id="link5" class="py-2 text-2xl select-none hover:cursor-pointer hover:text-3xl" onclick="document.getElementById('swissStage').classList.toggle('scale-[70%]'); document.getElementById('swissStage').classList.toggle('border-2'); window.scrollTo(0, 1000); this.classList.toggle('underline'); ">Swiss Screenshot-mode</a>
+        <a id="link6" class="py-2 text-2xl select-none hover:cursor-pointer hover:text-3xl" onclick="randomize()">Randomize all</a>
+        <a id="link7" class="py-2 text-2xl select-none hover:cursor-pointer hover:text-3xl">Save current</a>
+        <a id="link8" class="py-2 text-2xl select-none hover:cursor-pointer hover:text-3xl">Load previous</a>
+    </div>
+
+    <div class="flex flex-col min-w-max min-h-max py-2 border-slate-500" id="swissStage">
+        <div class="grow flex justify-center place-items-center my-2">
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px]">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 1 Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team1">
+                        <h2 class="text-right grow">Karmine Corp</h2>
+                        <img src="./images/KarmineCorp.svg" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team16score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team16">
+                        <img src="./images/JamesCheese.svg" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">James Cheese</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team2">
+                        <h2 class="text-right grow">Gen.G Mobil1 Racing</h2>
+                        <img src="./images/GenG.svg" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team15score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team15">
+                        <img src="./images/PWR.png" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">PWR</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team3">
+                        <h2 class="text-right grow">FaZe Clan</h2>
+                        <img src="./images/FaZe.svg" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team14score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team14">
+                        <img src="./images/MoistEsports.png" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">Moist Esports</h2>
+                    </div>
+                </div>
+                
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team4">
+                        <h2 class="text-right grow">The Club</h2>
+                        <img src="./images/TheClub.png" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team13score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team13">
+                        <img src="./images/Pioneers.png" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">Pioneers</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team5">
+                        <h2 class="text-right grow">Team Liquid</h2>
+                        <img src="./images/TeamLiquid.svg" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team12score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team12">
+                        <img src="./images/TeamSecret.svg" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">Team Secret</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team6">
+                        <h2 class="text-right grow">Version1</h2>
+                        <img src="./images/Version1.png" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team11score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team11">
+                        <img src="./images/Quadrant.png" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">Quadrant</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team7">
+                        <h2 class="text-right grow">Oxygen Esports</h2>
+                        <img src="./images/OxygenEsports.png" class="h-4 w-8 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team7score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team10score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team10">
+                        <img src="./images/G2Esports.svg" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">G2 Esports</h2>
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round1team8">
+                        <h2 class="text-right grow">Spacestation Gaming</h2>
+                        <img src="./images/SpacestationGaming.svg" class="h-7 w-7 mx-2">
+                    </div>
+                    <input autocomplete="off" id="round1team8score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round1team9score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round1team9">
+                        <img src="./images/TeamFalcons.png" class="h-7 w-7 mx-2">
+                        <h2 class="text-left grow">Team Falcons</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grow grid grid-cols-2 place-items-center my-2">
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] justify-self-end mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 2 High Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam1">
+                    </div>
+                    <input autocomplete="off" id="round2highTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2highTeam8score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam8">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam2">
+                    </div>
+                    <input autocomplete="off" id="round2highTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2highTeam7score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam7">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam3">
+                    </div>
+                    <input autocomplete="off" id="round2highTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2highTeam6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam6">
+                    </div>
+                </div>
+                
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam4">
+                    </div>
+                    <input autocomplete="off" id="round2highTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2highTeam5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2highTeam5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] justify-self-start mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 2 Low Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam1">
+                    </div>
+                    <input autocomplete="off" id="round2lowTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2lowTeam8score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam8">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam2">
+                    </div>
+                    <input autocomplete="off" id="round2lowTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2lowTeam7score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam7">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam3">
+                    </div>
+                    <input autocomplete="off" id="round2lowTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2lowTeam6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam6">
+                    </div>
+                </div>
+                
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam4">
+                    </div>
+                    <input autocomplete="off" id="round2lowTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round2lowTeam5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round2lowTeam5">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grow grid grid-cols-3 justify-center place-items-center my-2">
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] place-self-start justify-self-end mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 3 High Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3highTeam1">
+                    </div>
+                    <input autocomplete="off" id="round3highTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3highTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3highTeam4">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3highTeam2">
+                    </div>
+                    <input autocomplete="off" id="round3highTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3highTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3highTeam3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 3 Mid Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam1">
+                    </div>
+                    <input autocomplete="off" id="round3midTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3midTeam8score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam8">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam2">
+                    </div>
+                    <input autocomplete="off" id="round3midTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3midTeam7score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam7">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam3">
+                    </div>
+                    <input autocomplete="off" id="round3midTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3midTeam6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam6">
+                    </div>
+                </div>
+                
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam4">
+                    </div>
+                    <input autocomplete="off" id="round3midTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3midTeam5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3midTeam5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] place-self-start justify-self-start mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 3 Low Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3lowTeam1">
+                    </div>
+                    <input autocomplete="off" id="round3lowTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3lowTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3lowTeam4">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round3lowTeam2">
+                    </div>
+                    <input autocomplete="off" id="round3lowTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round3lowTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round3lowTeam3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grow grid grid-cols-2 justify-center place-items-center my-2">
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] justify-self-end mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 4 High Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam1">
+                    </div>
+                    <input autocomplete="off" id="round4highTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4highTeam6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam6">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam2">
+                    </div>
+                    <input autocomplete="off" id="round4highTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4highTeam5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam5">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam3">
+                    </div>
+                    <input autocomplete="off" id="round4highTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4highTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4highTeam4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px] justify-self-start mx-4">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 4 Low Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam1">
+                    </div>
+                    <input autocomplete="off" id="round4lowTeam1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4lowTeam6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam6">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam2">
+                    </div>
+                    <input autocomplete="off" id="round4lowTeam2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4lowTeam5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam5">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam3">
+                    </div>
+                    <input autocomplete="off" id="round4lowTeam3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round4lowTeam4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round4lowTeam4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grow flex justify-center place-items-center my-2">
+            <div class="flex flex-col border-[1px] border-gray-600 rounded-sm min-w-[600px]">
+
+                <div class="w-full bg-slate-800 text-center"><h1 class="py-1 text-2xl">Round 5 Matches</h1></div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round5team1">
+                    </div>
+                    <input autocomplete="off" id="round5team1score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round5team6score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round5team6">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-600 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round5team2">
+                    </div>
+                    <input autocomplete="off" id="round5team2score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round5team5score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round5team5">
+                    </div>
+                </div>
+
+                <div class="w-full bg-slate-700 flex justify-center place-items-center py-2 min-h-[44px]">
+                    <div class="w-1/2 flex place-items-center" id="round5team3">
+                    </div>
+                    <input autocomplete="off" id="round5team3score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <p class="mx-2">&#183;</p>
+                    <input autocomplete="off" id="round5team4score" class="w-6 h-6 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                    <div class="w-1/2 flex place-items-center" id="round5team4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden min-w-max h-full py-2 justify-center place-items-center" id="swissResults">
+        <div class="flex flex-col justify-center border-[0.5px] border-slate-600 rounded-sm">
+            <div class="bg-slate-800 grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] text-center text-2xl border-[0.5px] border-slate-600">
+                <p>#</p>
+                <p>Team</p>
+                <p>Matches</p>
+                <p>Games</p>
+                <p>GD</p>
+                <p>Round 1</p>
+                <p>Round 2</p>
+                <p>Round 3</p>
+                <p>Round 4</p>
+                <p>Round 5</p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">1</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam1">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1matches">3 - 0</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam1round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">2</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam2">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2matches">3 - 0</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam2round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">3</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam3">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3matches">3 - 1</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam3round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">4</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam4">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4matches">3 - 1</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam4round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">5</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam5">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5matches">3 - 1</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam5round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">6</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam6">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6matches">3 - 2</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam6round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">7</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam7">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7matches">3 - 2</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam7round5"></p>
+            </div>
+
+            <div class="bg-[#01320896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">8</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam8">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8matches">3 - 2</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam8round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">9</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam9">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9matches">2 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam9round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">10</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam10">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10matches">2 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam10round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">11</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam11">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11matches">2 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam11round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">12</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam12">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12matches">1 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam12round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">13</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam13">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13matches">1 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam13round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">14</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam14">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14matches">1 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam14round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">15</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam15">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15matches">0 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam15round5"></p>
+            </div>
+
+            <div class="bg-[#69181896] grid grid-cols-[3%_27%_7.5%_7.5%_5%_10%_10%_10%_10%_10%] min-w-[1200px] min-h-[44px] text-center text-xl">
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center">16</p>
+                <div class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-start" id="resultsTeam16">
+                </div>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16matches">0 - 3</p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16games"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16gd"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16round1"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16round2"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16round3"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16round4"></p>
+                <p class="border-[0.5px] border-slate-600 h-full w-full flex place-items-center justify-center" id="resultsTeam16round5"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden min-w-max h-full py-2 justify-center place-items-center" id="playoffs">
+        <div class="flex min-w-[1400px] justify-center">
+            <div class="flex flex-col w-1/3 mx-6 justify-center">
+                <div class="h-32 w-full rounded-sm bg-slate-700 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam1">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam1score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam8">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam8score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-32 w-full rounded-sm bg-slate-700 my-8 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam4">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam4score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam5">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam5score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-32 w-full rounded-sm bg-slate-700 my-8 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam2">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam2score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam7">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam7score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-32 w-full rounded-sm bg-slate-700 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam3">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam3score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="quarterTeam6">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="quarterTeam6score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col w-1/3 mx-6 justify-center">
+                <div class="h-32 w-full rounded-sm bg-slate-700 my-20 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="semiTeam1">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="semiTeam1score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="semiTeam2">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="semiTeam2score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-32 w-full rounded-sm bg-slate-700 my-20 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="semiTeam3">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="semiTeam3score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="semiTeam4">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="semiTeam4score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col w-1/3 mx-6 justify-center">
+                <div class="h-32 w-full rounded-sm bg-slate-700 border-[1px] border-slate-600">
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="finalTeam1">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="finalTeam1score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="h-1/2 w-full flex place-items-center border-2 border-slate-600">
+                        <div class="w-5/6 h-full flex place-items-center" id="finalTeam2">
+                        </div>
+                        <div class="w-1/6 h-full flex place-items-center justify-center">
+                            <input autocomplete="off" id="finalTeam2score" class="w-8 h-8 focus:ring-2 focus:ring-sky-400 outline-none rounded-sm text-black text-center" type="text" maxlength="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden min-w-max h-full py-2 justify-center place-items-center" id="prizes">
+        <div class="min-w-[1200px] min-h-[84%] flex flex-col border-[1px] border-slate-400 rounded-sm text-2xl">
+            <div class="grow bg-slate-800 border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 py-2">Place</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$USD</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">RLCS Points</p>
+                <p class="grow h-full place-items-center flex justify-center">Participant</p>
+            </div>
+
+            <div class="grow bg-[#6b6833] border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">1st</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$100.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">32</p>
+                <div class="grow h-full place-items-center flex justify-start py-2" id="prizesTeam1">
+                </div>
+            </div>
+
+            <div class="grow bg-[#676654] border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">2nd</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$60.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">24</p>
+                <div class="grow h-full place-items-center flex justify-start py-2" id="prizesTeam2">
+                </div>
+            </div>
+
+            <div class="grow bg-[#625131] border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">3rd-4th</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$25.500</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">18</p>
+                <div class="grow h-full place-items-center flex flex-col justify-start">
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam3">
+                    </div>
+                    <div class="flex grow w-full place-items-center py-2" id="prizesTeam4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grow bg-slate-700 border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">5th-8th</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$12.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">12</p>
+                <div class="grow h-full place-items-center flex flex-col justify-start">
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam5">
+                    </div>
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam6">
+                    </div>
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam7">
+                    </div>
+                    <div class="flex grow w-full place-items-center py-2" id="prizesTeam8">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grow bg-slate-700 border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">9th-12th</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$9.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">8</p>
+                <div class="grow h-full place-items-center flex flex-col justify-start">
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam9">
+                    </div>
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam10">
+                    </div>
+                    <div class="flex grow w-full place-items-center py-2" id="prizesTeam11">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grow bg-slate-700 border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">12th-14th</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$6.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">6</p>
+                <div class="grow h-full place-items-center flex flex-col justify-start">
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam12">
+                    </div>
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam13">
+                    </div>
+                    <div class="flex grow w-full place-items-center py-2" id="prizesTeam14">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grow bg-slate-700 border-[1px] border-slate-400 grid grid-cols-[10%_20%_20%_50%]">
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400 text-xl">15th-16th</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">$3.000</p>
+                <p class="grow h-full place-items-center flex justify-center border-r-2 border-slate-400">4</p>
+                <div class="grow h-full place-items-center flex flex-col justify-start">
+                    <div class="flex grow w-full place-items-center border-b-2 border-slate-400 py-2" id="prizesTeam15">
+                    </div>
+                    <div class="flex grow w-full place-items-center py-2" id="prizesTeam16">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--
+    npx tailwindcss -i ./src/input.css autocomplete="off".css -o ./main/output.css --watch
+-->
