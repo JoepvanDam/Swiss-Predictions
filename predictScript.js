@@ -556,3 +556,5 @@ function changePage(num) {
     selectedPage.classList.add('flex');
     selectedPage.classList.remove('hidden');
 }
+
+calculate();
