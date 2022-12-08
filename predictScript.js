@@ -212,6 +212,10 @@ function calculate() {
             if (num1 < 3) { document.getElementById("round4highTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 4)].htmlInfo[0]; document.getElementById("round4lowTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 10)].htmlInfo[0]; }
             else { document.getElementById("round4highTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 4)].htmlInfo[1]; document.getElementById("round4lowTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 10)].htmlInfo[1]; }
         }
+        
+        // Setting prizes teams 15/16
+        let tempPrizes = 15;
+        for (let num1 = 0; num1 < 16; num1++) { if (tempPrizes < 17) { if (initSeeds[num1].seeding[3] == 0 && initSeeds[num1].results[2] != 3) { document.getElementById("prizesTeam"+tempPrizes).innerHTML = initSeeds[num1].htmlInfo[3]; tempPrizes++; } } }
     }
 
     // Swiss round 4 -> 5
@@ -275,6 +279,10 @@ function calculate() {
             if (num1 < 8) { document.getElementById("round5team"+(num1 - 4)).innerHTML = initSeeds[(num1 + 5)].htmlInfo[0]; }
             else { document.getElementById("round5team"+(num1 - 4)).innerHTML = initSeeds[(num1 + 5)].htmlInfo[1]; }
         }
+        
+        // Setting prizes teams 12, 13 & 14
+        let tempPrizes = 12;
+        for (let num1 = 0; num1 < 16; num1++) { if (tempPrizes < 15) { if (initSeeds[num1].seeding[4] == 0 && initSeeds[num1].seeding[3] != 0 && initSeeds[num1].results[3] != 3) { document.getElementById("prizesTeam"+tempPrizes).innerHTML = initSeeds[num1].htmlInfo[3]; tempPrizes++; } } }
     }
 
     // Swiss round 5 -> swiss results & prizes & playoffs
@@ -325,6 +333,10 @@ function calculate() {
                 if (round3loss[(num1-14)].gd > 0) { document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = "+" + round3loss[(num1-14)].gd;} else {document.getElementById("resultsTeam"+(num1+1)+"gd").innerHTML = round3loss[(num1-14)].gd; }
             }
         }
+        
+        // Setting prizes teams 9, 10 & 11
+        let tempPrizes = 9;
+        for (let num1 = 0; num1 < 16; num1++) { if (tempPrizes < 12) { if (initSeeds[num1].seeding[3] != 0 && initSeeds[num1].seeding[4] != 0 && initSeeds[num1].results[4] != 3) { document.getElementById("prizesTeam"+tempPrizes).innerHTML = initSeeds[num1].htmlInfo[3]; tempPrizes++; } } }
 
         // Setting playoff quarterfinal teams
         document.getElementById("quarterTeam1").innerHTML = round3win[0].htmlInfo[2]; document.getElementById("quarterTeam2").innerHTML = round3win[1].htmlInfo[2]; document.getElementById("quarterTeam3").innerHTML = round4win[0].htmlInfo[2]; document.getElementById("quarterTeam4").innerHTML = round4win[1].htmlInfo[2]; document.getElementById("quarterTeam5").innerHTML = round4win[2].htmlInfo[2]; document.getElementById("quarterTeam6").innerHTML = round5win[0].htmlInfo[2]; document.getElementById("quarterTeam7").innerHTML = round5win[1].htmlInfo[2]; document.getElementById("quarterTeam8").innerHTML = round5win[2].htmlInfo[2];
