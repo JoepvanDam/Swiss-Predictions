@@ -291,7 +291,7 @@ function calculate() {
         for (let num1 = 0; num1 < 4; num1++) { if (round3teams[num1].results[2] == 3) { round3win.push(round3teams[num1]); } else { round3loss.push(round3teams[num1]); } }
         for (let num1 = 0; num1 < 6; num1++) { if (round4teams[num1].results[3] == 3) { round4win.push(round4teams[num1]); } else { round4loss.push(round4teams[num1]); } }
         for (let num1 = 0; num1 < 6; num1++) { if (round5teams[num1].results[4] == 3) { round5win.push(round5teams[num1]); } else { round5loss.push(round5teams[num1]); } }
-        round3win.sort((a, b) => b.gd - a.gd); round3loss.sort((a, b) => b.gd - a.gd); round4win.sort((a, b) => b.gd - a.gd); round4loss.sort((a, b) => b.gd - a.gd); round5win.sort((a, b) => b.gd - a.gd); round5loss.sort((a, b) => b.gd - a.gd);
+        round3win.sort((a, b) => b.gd - a.gd || a.num - b,num); round3loss.sort((a, b) => b.gd - a.gd || a.num - b,num); round4win.sort((a, b) => b.gd - a.gd || a.num - b,num); round4loss.sort((a, b) => b.gd - a.gd || a.num - b,num); round5win.sort((a, b) => b.gd - a.gd || a.num - b,num); round5loss.sort((a, b) => b.gd - a.gd || a.num - b,num);
 
         // Setting results teams, game difference
         for (let num1 = 0; num1 < 16; num1++) {
