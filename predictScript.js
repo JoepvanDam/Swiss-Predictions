@@ -425,11 +425,11 @@ function calculate() {
 
         // Finals -> prizes
         if (isNaN(playoffScores[12]) || isNaN(playoffScores[13])) {}
-            else { if (playoffScores[12]>playoffScores[13]) {
+            else { if (playoffScores[12] > playoffScores[13]) {
                 document.getElementById("prizesTeam1").innerHTML = semiFinalWin[0].htmlInfo[3];
                 document.getElementById("prizesTeam2").innerHTML = semiFinalWin[1].htmlInfo[3];
             }
-            else if (playoffScores[9] > playoffScores[8]) {
+            else if (playoffScores[13] > playoffScores[12]) {
                 document.getElementById("prizesTeam1").innerHTML =  semiFinalWin[1].htmlInfo[3];
                 document.getElementById("prizesTeam2").innerHTML =  semiFinalWin[0].htmlInfo[3];
             }
