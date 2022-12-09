@@ -213,9 +213,10 @@ function calculate() {
             else { document.getElementById("round4highTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 4)].htmlInfo[1]; document.getElementById("round4lowTeam"+(num1+1)).innerHTML = initSeeds[(num1 + 10)].htmlInfo[1]; }
         }
         
-        // Setting prizes teams 15/16
-        let tempPrizes = 15;
+        // Setting prizes teams 15/16 and quarter finals teams 1/2.
+        let tempPrizes = 15, tempPlayoffs = 1;
         for (let num1 = 0; num1 < 16; num1++) { if (tempPrizes < 17) { if (initSeeds[num1].seeding[3] == 0 && initSeeds[num1].results[2] != 3) { document.getElementById("prizesTeam"+tempPrizes).innerHTML = initSeeds[num1].htmlInfo[3]; tempPrizes++; } } }
+        for (let num1 = 0; num1 < 16; num1++) { if (tempPlayoffs < 3) { if (initSeeds[num1].seeding[3] == 0 && initSeeds[num1].results[2] == 3) { document.getElementById("quarterTeam"+tempPlayoffs).innerHTML = initSeeds[num1].htmlInfo[3]; tempPlayoffs++; } } }
     }
 
     // Swiss round 4 -> 5
