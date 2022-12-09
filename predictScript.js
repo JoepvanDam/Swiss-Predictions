@@ -281,9 +281,10 @@ function calculate() {
             else { document.getElementById("round5team"+(num1 - 4)).innerHTML = initSeeds[(num1 + 5)].htmlInfo[1]; }
         }
         
-        // Setting prizes teams 12, 13 & 14
-        let tempPrizes = 12;
+        // Setting prizes teams 12, 13 & 14 and quarterfinals 3, 4 & 5.
+        let tempPrizes = 12, tempPlayoffs = 3;
         for (let num1 = 0; num1 < 16; num1++) { if (tempPrizes < 15) { if (initSeeds[num1].seeding[4] == 0 && initSeeds[num1].seeding[3] != 0 && initSeeds[num1].results[3] != 3) { document.getElementById("prizesTeam"+tempPrizes).innerHTML = initSeeds[num1].htmlInfo[3]; tempPrizes++; } } }
+        for (let num1 = 0; num1 < 16; num1++) { if (tempPlayoffs < 6) { if (initSeeds[num1].seeding[4] == 0 && initSeeds[num1].seeding[3] != 0 && initSeeds[num1].results[3] == 3) { document.getElementById("quarterTeam"+tempPlayoffs).innerHTML = initSeeds[num1].htmlInfo[3]; tempPlayoffs++; } } }
     }
 
     // Swiss round 5 -> swiss results & prizes & playoffs
